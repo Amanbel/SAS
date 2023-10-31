@@ -326,7 +326,7 @@ export default function App() {
             path="/"
             element={
               <pathContext.Provider
-                value={{ path_var, whenLogin, whenLoginSubmit, ErrStyle }}
+                value={{ path_var, whenLogin, whenLoginSubmit, ErrStyle, LoginData }}
               >
                 <Login />
               </pathContext.Provider>

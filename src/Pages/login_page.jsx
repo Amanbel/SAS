@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { pathContext } from "../components/pathContext";
 
 export default function Login() {
-  const { whenLogin, whenLoginSubmit, ErrStyle } = useContext(pathContext);
+  const { whenLogin, whenLoginSubmit, ErrStyle, LoginData } = useContext(pathContext);
 
   return (
     <div className="login_div">
@@ -33,7 +33,15 @@ export default function Login() {
           {ErrStyle == 2 && (
             <h4 style={{ color: "red" }}>Empty Email/password</h4>
           )}
-          <button>Log in</button>
+          <button type="button" onClick={()=>{
+            if (LoginData.page == "owners_list"){
+              navigate("/dashboard")
+            } else if (LoginData.page == "sales_managers") {
+              navigate("/commit sales")
+            }
+          }
+          }
+          >Log in</button>
           <p>
             Don't have an account, create <br></br> one here
             <Link to="/Sign up">Sign up</Link>
